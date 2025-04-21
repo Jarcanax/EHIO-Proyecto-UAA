@@ -1,0 +1,354 @@
+/* Reinicio global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url(fondoproductos.jpg); /* Color Crema */
+    color: #491e0b; /* Color Marrón */
+  }
+  
+  /* ----------------------------------
+     Header: Área Superior (Logo y Títulos)
+  ------------------------------------- */
+  .header-top {
+    text-align: center;
+    padding:0px;
+    /* Fondo texturizado o degradado para dar sofisticación;
+       para usar textura, asegúrate de tener 'textura-lino.png' en la carpeta */
+    background-image:  url('fondoproductos.jpg') repeat;
+    /* Alternativamente, podrías usar un degradado:
+    background: linear-gradient(135deg, #fef1cf 0%, #fff6e5 100%);
+    */
+  }
+  
+  .logo-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo-title img {
+    height: 250px;
+  }
+  
+  
+  /* ----------------------------------
+     Navegación: Fondo y Menú
+  ------------------------------------- */
+  .nav-background {
+    background-color: #402d2d;  
+    padding: 10px 0;
+    margin-bottom: 0px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    padding-left: 523px;
+    font-size:large;
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #fef1cf;
+    font-weight: bold;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.4s ease;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color:#fef1cf;
+    transition: width 0.4s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #fef1cf;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  .extra-icons a {
+    margin-left: 15px;
+    color: #fef1cf;
+    font-size: 1.2rem;
+  }
+  
+  /* ----------------------------------
+     Slider de Galería (una imagen a la vez)
+  ------------------------------------- */
+  /* Slider de Galería */
+.gallery-slider {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Ocupa toda la altura de la ventana */
+    margin: 0 auto;
+    overflow: hidden;
+    border: none; /* Sin bordes */
+    border-radius: 0; /* Sin bordes redondeados */
+    box-shadow: none; /* Sin sombra */
+}
+
+.gallery-slider .slides {
+    display: flex;
+    width: 100%; /* Ajuste para mostrar una imagen a la vez */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-slider .slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+  
+  /* Botones para el slider */
+  .gallery-slider button.prev,
+  .gallery-slider button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(73, 30, 11, 0.7);
+    color: #fef1cf;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 10;
+  }
+  
+  .gallery-slider button.prev {
+    left: 20px;
+  }
+  
+  .gallery-slider button.next {
+    right: 20px;
+  }
+  
+  /* ----------------------------------
+     Sección Hero
+  ------------------------------------- */
+  .hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .hero-content {
+    background-color: rgba(73, 30, 11, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .hero h1,
+  .hero p {
+    color: #fef1cf;
+  }
+  
+  /* ----------------------------------
+     Botones Generales
+  ------------------------------------- */
+  .btn {
+    display: inline-block;
+    background-color: #491e0b;
+    color: #fef1cf;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #6F2A0E;
+  }
+  
+  /* ----------------------------------
+     Secciones y Contenedores
+  ------------------------------------- */
+  .section {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* ----------------------------------
+     Grid de Productos
+  ------------------------------------- */
+  .producto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .producto-card {
+    background-color: #fef1cf;
+    border: 2px solid #491e0b;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .producto-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(73, 30, 11, 0.3);
+  }
+  
+  /* Reducir el tamaño de las imágenes de productos */
+  .producto-card img {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Ajusta este valor según tus preferencias */
+    object-fit: contain;
+  }
+  
+  /* ----------------------------------
+     Formulario de Contacto
+  ------------------------------------- */
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #491e0b;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* ----------------------------------
+     Pie de Página
+  ------------------------------------- */
+  footer {
+    background-color: #fef1cf;
+    padding: 20px;
+    text-align: center;
+    color: #491e0b;
+  }
+  
+  .social-icons a {
+    margin: 0 10px;
+    font-size: 1.2rem;
+    color: #491e0b;
+  }
+/* ----------------------------------
+   Sección de Eventos Destacados - Estilo Moderno
+------------------------------------- */
+.eventos-destacados {
+  background-image: url(fondoproductos.jpg);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.eventos-destacados h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #fef1cf;
+  background-color:#402d2d;
+  display: inline-block;
+  padding: 10px 30px;
+  margin-bottom: 70px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.evento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+  padding: 30px;
+  border-radius: 15px;
+  background:#402d2d;
+  box-shadow: 0px 10px 20px rgba(73, 30, 11, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.evento:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 15px 25px rgba(73, 30, 11, 0.3);
+}
+
+.evento img {
+  width: 450px;
+  height: 450px;
+  border-radius: 15px;
+  border: 3px solid #402d2d;
+  transition: transform 0.3s ease-in-out;
+}
+
+.evento:hover img {
+  transform: scale(1.1);
+}
+
+.evento-info {
+  max-width: 450px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+}
+
+.evento-info h1 {
+  color: #fef1cf;
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.evento-info p {
+  color:#fef1cf;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+body{
+  background-color: #fef1cf
+  ;
+}
